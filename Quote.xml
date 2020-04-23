@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<quote>
+  <section name="Branding">
+    <entree>
+      <item>Logo</item>
+      <price>120</price>
+    </entree>
+    <entree>
+      <item>Flyer</item>
+      <price>50</price>
+    </entree>
+  </section>
+  <section name="Digital Services">
+    <entree>
+      <item>Web Banners</item>
+      <price>75</price>
+    </entree>
+    <entree>
+      <item>Instagram Posts</item>
+      <price>50</price>
+    </entree>
+  </section>
+  <section name="Web Design">
+    <entree>
+      <item>Landing Page</item>
+      <price>450</price>
+    </entree>
+    <entree>
+      <item>New Page</item>
+      <price>150</price>
+    </entree>
+  </section>
+  <section name="Marketing">
+    <entree>
+      <item>Poster Design</item>
+      <price>75</price>
+    </entree>
+    <entree>
+      <item>Flyer</item>
+      <price>50</price>
+    </entree>
+    <entree>
+      <item>Ticket</item>
+      <price>50</price>
+    </entree>
+  </section>
+  <section name="Packaging">
+    <entree>
+      <item>Labels Design</item>
+      <price>75</price>
+    </entree>
+    <entree>
+      <item>Box Design</item>
+      <price>120</price>
+    </entree>
+  </section>
+</quote>
