@@ -19,15 +19,15 @@
       <item>Instagram Posts</item>
       <price>50</price>
     </entree>
+    <entree>
+      <item>letterhead</item>
+      <price>14</price>
+    </entree>
   </section>
   <section name="Web Design">
     <entree>
       <item>Landing Page</item>
       <price>450</price>
-    </entree>
-    <entree>
-      <item>New Page</item>
-      <price>150</price>
     </entree>
   </section>
   <section name="Marketing">
