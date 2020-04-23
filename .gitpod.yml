@@ -1,5 +1,5 @@
-tasks:
-  - init: npm install
-    command: npm run start
 image:
   file: .gitpod.Dockerfile
+tasks:
+  - name: Running MongoDB
+    command: mkdir -p data && mongod --dbpath data
