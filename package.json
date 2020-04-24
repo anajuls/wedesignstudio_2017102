@@ -3,7 +3,7 @@
   "name": "startbootstrap-creative",
   "version": "5.1.8",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon server.js"
   },
   "description": "Creative is a stylish one page HTML theme for Bootstrap.",
   "keywords": [
@@ -32,6 +32,7 @@
     "@fortawesome/fontawesome-free": "5.10.2",
     "body-parser": "^1.19.0",
     "bootstrap": "4.3.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
@@ -41,13 +42,16 @@
     "magnific-popup": "^1.1.0",
     "mongodb": "^3.5.6",
     "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "parser": "^0.1.4",
     "path": "^0.12.7",
     "xml2js": "^0.4.23",
     "xslt-processor": "^0.11.5"
   },
   "devDependencies": {
     "browser-sync": "2.26.7",
-    "del": "5.1.0",
+    "del": "^5.1.0",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "7.0.0",
     "gulp-clean-css": "4.2.0",
