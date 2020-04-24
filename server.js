@@ -6,18 +6,24 @@ bodyParser = require("body-parser"),
 mongoose = require('mongoose');
 
 var app = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 var userCtrl = require('./user-controller');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(require('./routes'));
 
+app.post('/users', userCtrl.createUser);
+app.get('/users', userCtrl.getUsers);
+app.get('/users/:id', userCtrl.getUser);
+app.delete('/users/:id', userCtrl.deleteUser);
+app.put('/users/:id', userCtrl.updateUser);
+
 app.listen(port, function(err){
     console.log("Listening on Port: " + port)
 });
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb+srv://test:<ccttestuser>@cluster0-chmuy.mongodb.net/test?retryWrites=true&w=majority');
 mongoose.connection.on('error', (err) => { 
     console.log('Mongodb Error: ', err); 
     process.exit();
