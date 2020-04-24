@@ -13,5 +13,4 @@ module.exports.UPLOAD_PATH = 'uploads';
 var multer = require('multer');
 var upload = multer({ dest: module.exports.UPLOAD_PATH });
 
-
 module.exports = router;
