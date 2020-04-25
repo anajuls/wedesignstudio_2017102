@@ -6,6 +6,8 @@ bodyParser = require("body-parser"),
 mongoose = require('mongoose');
 require('dotenv').config();
 
+
+
 var app = express();
 var port = process.env.PORT || 3000;
 var userCtrl = require('./user-controller');
@@ -13,6 +15,8 @@ var userCtrl = require('./user-controller');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(require('./routes'));
+
+
 
 
 app.listen(port, function(err){
