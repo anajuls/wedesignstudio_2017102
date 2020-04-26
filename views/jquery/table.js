@@ -1,6 +1,6 @@
 function draw_table()
 {
-	$("#results").empty();
+    //$("#results").empty();
 	$.getJSONuncached = function (url)
 	{
 		return $.ajax(
@@ -10,13 +10,30 @@ function draw_table()
 			cache: false,
 			success: function (html)
 			{
-				$("#results").append(html);
-				select_row();
+                buildTable(html);
+                //$("#results").append(html);
+				//select_row();
 			}
 		});
 	};
-	$.getJSONuncached("/get/html")
+	$.getJSONuncached("/users")
 };
+
+function buildTable(html) {
+    
+    let usersHTML = '';
+    $.each(html, function(index) {
+        usersHTML += '<tr id="'+html[index]._id+'">'
+            +  '<td align="left">'
+            +  '<h5>'+html[index].item+'</h5>'
+            +  '</td>'
+            +  '<td align="right">'+html[index].price+'</td>'
+            +  '<td>'
+            +  '<button class="btn btn-sm btn-primary edit-row" data-item="'+html[index]._id+'">Edit</button>'
+            +  '</td></tr>';
+    });
+    $('#results_table tbody').html(usersHTML);
+}
 
 function select_row()
 {
@@ -51,5 +68,59 @@ function delete_row(sec, ent)
 
 $(document).ready(function ()
 {
-	draw_table();
+    draw_table();
+
+    // Select Row for Edit/Delete
+    $('body').on('click', '.edit-row', function() {
+        itemId = $(this).data('item');
+
+        $.ajax({
+            url: '/users/' + itemId,
+            type: 'GET',
+            dataType: 'json',
+            cache: false, // Appends _={timestamp} to the request query string
+            success: function(data) {
+                // data is a json object.
+                $("input[name='item_id']").val(data._id);
+                $("input[name='item']").val(data.item);
+                $("input[name='price']").val(data.price);
+            }
+        });
+    });
+
+    // Delete Product
+    $('body').on('click', '#delete', function() {
+        // If we have our item id
+        if($('#item_id').val()) {
+            $.ajax({
+                url: '/users/' + $('#item_id').val(),
+                type: 'DELETE',
+                dataType: 'json',
+                success: function(data) {
+                    // Reload updated admin table
+                    draw_table();
+                }
+            });
+        }
+    });
+    
+    $(document).on('submit','#adminForm',function(e){
+        e.preventDefault();
+
+        // Here I submit the form with Ajax
+        $.ajax({
+            url: '/users/',
+            type: 'POST',
+            data: { 
+                item: $("input[name='item']").val(),  
+                price: $("input[name='price']").val()
+            },
+            dataType: 'json',
+            success: function(data) {
+                // Reinit updated admin table
+                draw_table();
+            }
+        });
+    })
+
 });
