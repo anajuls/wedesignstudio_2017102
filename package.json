@@ -34,7 +34,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "jquery.easing": "^1.4.1",
     "magnific-popup": "^1.1.0",
     "mongodb": "^3.5.6",
